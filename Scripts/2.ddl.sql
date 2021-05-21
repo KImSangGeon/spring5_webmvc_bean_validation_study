@@ -6,8 +6,9 @@ NAME varchar(100),
 REGDATE datetime,
 unique key (EMAIL) 
 );
+insert into member(EMAIL, PASSWORD, NAME) values
+('tkdrjs2@naver.com', 'tkdrjs8', '김민');
+select ID, EMAIL, PASSWORD, NAME, REGDATE from member;
 
-select * from member;
-
-delete from member where id in (39, 40, 41, 42, 43, 44, 45);
+delete from member where id in (46, 47, 48, 49);
 

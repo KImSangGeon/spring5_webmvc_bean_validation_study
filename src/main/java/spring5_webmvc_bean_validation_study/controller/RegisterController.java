@@ -1,5 +1,7 @@
 package spring5_webmvc_bean_validation_study.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -37,10 +39,17 @@ public class RegisterController {
 			return "redirect:/register/step1";
 		}
 		@PostMapping("/register/step3")
-		public String handleStep3(/* @ModelAttribute("formData") */ RegisterRequest reqReq, Errors errors) {
+		public String handleStep3(/* @ModelAttribute("formData") */
+				                                            @Valid RegisterRequest reqReq, Errors errors) {
+		
 			if(errors.hasErrors())
 				return "register/step2";
 		
+			if(!reqReq.isPasswordEqualToConfirmPassword()) {
+				errors.rejectValue("confirmPassword", "nomatch");
+				return "register/step2";
+			}
+			
 			try {
 				service.regist(reqReq);
 				return "register/step3";
