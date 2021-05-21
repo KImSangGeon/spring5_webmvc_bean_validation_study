@@ -48,6 +48,12 @@ dependencies {
 	
 	//hikari
 	implementation group: 'com.zaxxer', name: 'HikariCP', version: '3.4.5'	
+
+	//validation
+	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+	implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.2.0.Final'
+	
+	
 	
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
 	 
